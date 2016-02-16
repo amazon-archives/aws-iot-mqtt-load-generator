@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Running metrics series details</div>
+                <div class="panel-body">
+                    <form ng-submit="">
+                        <div class="form-group">
+                            <label for="configTopic">Topic</label>
+                            <input id="configTopic" type="text" class="form-control" ng-model="config.topic" ng-value="config.topic" value="{{config.topic}}" ng-disabled="readonlymode">
+                        </div>                        
+                        <div class="form-group">
+                            <label for="configTopic">Rate</label>
+                            <input id="configTopic" type="text" class="form-control" ng-model="config.rate" ng-value="config.rate" value="{{config.rate}}" ng-disabled="readonlymode">
+                        </div>                        
+                        <div class="form-group">
+                            <label for="configTemplate">Template Id</label>
+                            <input id="configTemplate" type="text" class="form-control" ng-model="config.templateid" ng-value="config.templateid" ng-disabled="readonlymode" >
+                            <table class="table">
+                                <thead><tr><th>Function</th><th>Variable</th><th>Parameters</th></tr></thead>
+                                <tbody>
+                                    <tr ng-repeat="ms in config.metricsseries| orderBy:orderProp" data-configid="{{config.id}}">
+                                        <td>{{ms.function}}</td><td>{{ms.variable}}</td><td><ul><li ng-repeat="p in ms.parameters"><div ng-repeat="(key,value) in p">{{key}}-{{value}}</div></li></ul></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>      
+                        <div class="form-group" ng-hide="readonlymode">
+                            <input class="btn btn-primary" ng-disabled="readonlymode" type="submit" id="submitConfig" name="Save" value="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

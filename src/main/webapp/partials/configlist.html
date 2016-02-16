@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Available LoadConfigurations</div>
+                <div class="panel-body">
+                    <table class="table table-hover">
+                        <thead><tr><th>Topic</th><th>Template Id</th><th>Id</th><th></th></tr></thead>
+                        <tbody>
+                            <tr ng-repeat="config in configs" data-configid="{{config.id}}">
+                                <td>{{config.topic}}</td><td>{{config.templateid}}</td>
+                                <td>{{config.id}}</td>
+                                <td><a class="btn btn-info" href="#/config/{{config.id}}"><span class="glyphicon glyphicon-info-sign" ></span></a></td>
+                                <td><a class="btn btn-danger" ng-click="deleteConfig(config)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                                <td><button class="btn btn-success" data-abc="{{config.running}}" ng-disabled="config.running" ng-click="startLoadConfiguration(config)"><span class="glyphicon glyphicon-play"></span></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="btn btn-default"  ng-click="createConfig()" >New</a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

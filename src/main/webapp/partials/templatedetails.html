@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Metrics Configurations</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead><tr><th>Function</th><th>Variable</th><th>Rate</th><th>Parameters</th></tr></thead>
+                        <tbody>
+                            <tr ng-repeat="ms in config.metricsseries| orderBy:orderProp" data-configid="{{config.id}}">
+                                <td>{{ms.function}}</td><td>{{ms.variable}}</td><td>{{ms.rate}}</td><td><ul><li ng-repeat="p in ms.parameters"><div ng-repeat="(key,value) in p">{{key}}-{{value}}</div></li></ul></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

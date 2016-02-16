@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Function configuration</div>
+                <div class="panel-body">
+                    <form ng-submit="saveFunction()">
+                        <input type="checkbox"  ng-model="config.editmode"  class="btn btn-warning" ng-disabled="config.editmode"><span class="glyphicon glyphicon-pencil float:right"></span>
+                        <div class="form-group">
+                            <label for="function">Function</label>
+                            <select id="function" class="form-control" ng-model="ms.function" ng-value="ms.function" ng-disabled="!config.editmode">
+                                <option>SINE</option>
+                                <option>RANDOM</option>
+                                <option>EXPR</option>
+                                <option>TEXT</option>
+                            </select>
+                        </div>                        
+                        <div class="form-group">
+                            <label for="functionVariable">Variable</label>
+                            <input id="functionVariable" type="text" class="form-control" ng-model="ms.variable" ng-value="ms.variable" ng-disabled="!config.editmode" >
+                        </div>
+                        <table class="table table-hover">
+                            <caption>Parameters</caption>
+                            <thead><tr><th>Name</th><th>Value</th><th></th></tr></thead>
+                            <tbody ng-repeat="p in ms.parameters">
+                                <tr ng-repeat="(key,value) in p" >
+                                    <td>{{key}}</td>
+                                    <td>{{value}}</td>
+                            <td>
+                                <div contenteditable="true" href="#" ng-model="value" >{{value}}</div>
+                            </td>
+
+                            <td><button class="btn btn-danger" ng-disabled="!config.editmode" ng-click="deleteParameter(p)"><span class="glyphicon glyphicon-trash"></span></button></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-default" ng-click="createNewParameter()">New Parameter</button>
+                        <div class="form-group">
+                            <input class="btn btn-primary" ng-disabled="!config.editmode" type="submit" id="submitConfig" name="Save" value="Save">
+                            <a class="btn" ng-click="cancelFunctionEdit(config)">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

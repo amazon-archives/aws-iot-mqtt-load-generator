@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">Running Metrics Series</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead><tr><th>Id</th><th>Runtime (s)</th><th></th></tr></thead>
+                        <tbody>
+                            <tr ng-repeat="s in series">
+                                <td>{{s.id}}</td>
+                                <td>{{s.runtime/1000}}</td>
+                                <td><a class="btn btn-info" href="#/series/{{s.id}}" ><span class="glyphicon glyphicon-info-sign"></span></a></td>
+                                <td><a class="btn btn-danger" ng-click="stopSeries(s)" ><span class="glyphicon glyphicon-remove"></span></a></td>                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

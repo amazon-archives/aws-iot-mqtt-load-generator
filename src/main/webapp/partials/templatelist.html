@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">Templates</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead><tr><th>Name</th><th>Content</th></tr></thead>
+                        <tbody>
+                            <tr ng-repeat="t in templates">
+                                <td>{{t.name}}</td><td>{{t.content}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
